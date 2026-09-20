@@ -1,5 +1,5 @@
 # Generating Receipt of Sky Dine
-from pyscript import document, display
+from pyscript import display, document
 
 def receipt(e):
     name = document.getElementById("customer").value
