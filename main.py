@@ -17,6 +17,6 @@ def receipt(e):
     full_total = burger_total + fries_total + shake_total + icecream_total
 
     display(
-        f"Order Processed! Customer: {name} Total: ${full_total:.2f}",
+        f"Order Processed! Customer: {name} Total: ${full_total:}",
         target="output"
     )
