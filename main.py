@@ -1,21 +1,22 @@
-# Generating A Receipt of Sky Dine
-from pyscript import display, document
+# Generating Receipt of Sky Dine
+from pyscript import document, display
 
 def receipt(e):
-    name = document.getElementById("customer").checked
+    name = document.getElementById("customer").value
 
-    has_burger = document.getElementById("burger").checked
-    has_fries = document.getElementById("fries").checked
-    has_shake = document.getElementById("shake").checked
-    has_icecream = document.getElementById("icecream").checked
+    burger = document.getElementById("burger")
+    fries = document.getElementById("fries")
+    shake = document.getElementById("shake")
+    icecream = document.getElementById("icecream")
 
-    burger_total = {has_burger} * 7.99
-    fries_total = {has_fries} * 5.99
-    shake_total = {has_shake} * 3.99
-    icecream_total = {has_icecream} * 0.99
+    burger_total = float(burger.value) * burger.checked
+    fries_total = float(fries.value) * fries.checked
+    shake_total = float(shake.value) * shake.checked
+    icecream_total = float(icecream.value) * icecream.checked
 
-    full_total = {burger_total} + {fries_total} + {shake_total} + {icecream_total}
+    full_total = burger_total + fries_total + shake_total + icecream_total
 
-
-    display(f'Order Processed!', target="process")
-    display(f'{full_total}', target="output")
+    display(
+        f"Order Processed! Customer: {name} Total: ${full_total:.2f}",
+        target="output"
+    )
